@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
 <title>Valentine 💕</title>
 
 <style>
@@ -21,8 +22,8 @@
 
     .card {
         background: white;
-        width: 90%;
-        max-width: 350px;
+        width: 92%;
+        max-width: 380px;
         padding: 30px 20px;
         border-radius: 25px;
         text-align: center;
@@ -32,7 +33,7 @@
 
     h1 {
         color: #ff4d6d;
-        font-size: 22px;
+        font-size: 24px;
         margin-bottom: 20px;
     }
 
@@ -43,7 +44,7 @@
 
     button {
         padding: 12px 26px;
-        font-size: 16px;
+        font-size: 18px;
         border-radius: 30px;
         border: none;
         cursor: pointer;
@@ -139,11 +140,7 @@
     const typing = document.getElementById("typing");
     const music = document.getElementById("bgMusic");
 
-    // Play music on first tap (mobile-safe)
-    document.body.addEventListener("click", () => {
-        music.play();
-    }, { once: true });
-
+    
     // NO button = impossible forever 😈
     function escapeNo() {
         const x = Math.random() * (window.innerWidth - 100);
@@ -159,10 +156,11 @@
 
     // YES clicked
     yesBtn.addEventListener("click", () => {
-        card.style.display = "none";
-        result.style.display = "block";
-        typeText("I love you ❤️");
-    });
+    music.play(); // 🎵 music starts ONLY on YES
+    card.style.display = "none";
+    result.style.display = "block";
+    typeText("I love you ❤️");
+});
 
     // Typing animation
     function typeText(text) {
